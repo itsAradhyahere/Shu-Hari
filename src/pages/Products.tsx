@@ -1,5 +1,4 @@
 // src/pages/Products.tsx
-import React from 'react';
 import CollapsibleText from '../components/CollapsibleText';
 
 const products = [

@@ -1,33 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-/**
- * @typedef {Object} CollapsibleTextProps
- * @property {string} text
- * @property {number} [maxLength]
- */
+type CollapsibleTextProps = {
+  text: string;
+  maxLength?: number;
+};
 
-/**
- * @param {CollapsibleTextProps} props
- */
-const CollapsibleText = ({ text, maxLength = 200 }) => {
+const CollapsibleText = ({ text, maxLength = 200 }: CollapsibleTextProps) => {
   const [expanded, setExpanded] = useState(false);
 
-  if (text.length <= maxLength) {
-    return <p>{text}</p>;
-  }
+  const toggleExpanded = () => {
+    setExpanded(!expanded);
+  };
+
+  const isLong = text.length > maxLength;
+  const displayText = expanded || !isLong ? text : text.substring(0, maxLength) + '...';
 
   return (
-    <div>
-      <p>
-        {expanded ? text : text.slice(0, maxLength) + '...'}
+    <div className="text-gray-800 text-lg leading-relaxed">
+      <p>{displayText}</p>
+      {isLong && (
         <button
-          onClick={() => setExpanded(!expanded)}
-          className="ml-2 text-green-600 font-semibold hover:underline"
-          aria-label={expanded ? 'Show less' : 'Read more'}
+          onClick={toggleExpanded}
+          className="mt-2 text-green-600 hover:text-green-800 underline transition duration-300"
         >
-          {expanded ? 'Show less' : 'Read more'}
+          {expanded ? 'Show Less' : 'Read More'}
         </button>
-      </p>
+      )}
     </div>
   );
 };

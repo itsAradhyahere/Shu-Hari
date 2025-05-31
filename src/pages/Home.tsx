@@ -1,66 +1,54 @@
-// src/pages/Home.tsx
-import React from 'react';
-import WhatsAppChat from '../components/WhatsAppChat';
-import CollapsibleText from '../components/CollapsibleText';
+import { motion } from 'framer-motion';
+import { Sparkles } from 'lucide-react'; // Optional icon
+import type { FC } from 'react';
 
-const productList = [
-  { id: 1, name: 'Saw Dust', image: '/public/images/SawDust.jpg' },
-  { id: 2, name: 'Wood Chips', image: '/public/images/Wood Chips.jpg' },
-  { id: 3, name: 'Rice Straw & Husk', image: '/public/images/Rice Straw and Husk.jpg' },
-  { id: 4, name: 'Wood Pellets', image: '/public/images/Wood Pellets.jpg' },
-  { id: 5, name: 'Briquette', image: '/public/images/Briquette.jpg' },
-  { id: 6, name: 'Bamboo', image: '/public/images/Bamboo.jpg' },
-  { id: 7, name: 'Biochar', image: '/public/images/Biochar.jpg' },
-];
+type HomeProps = {
+  phoneNumber: string;
+};
 
-const introText = `ShuHaRi Renewables is committed to providing sustainable biomass energy solutions. Explore our diverse range of products, crafted to fuel a greener future.`;
-
-const Home = () => {
+const Home: FC<HomeProps> = ({ phoneNumber }) => {
   return (
-    <main className="relative min-h-screen overflow-hidden text-white">
-      {/* Video Background */}
+    <section className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Background video */}
       <video
-        className="fixed top-0 left-0 w-full h-full object-cover brightness-75"
-        src="/assets/background-video.mp4"
         autoPlay
         loop
         muted
-        playsInline
-      />
+        className="absolute w-full h-full object-cover -z-10 opacity-70"
+      >
+        <source src="/assets/bg-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Overlay */}
-      <div className="relative z-10 bg-gradient-to-b from-black/60 via-black/40 to-black/80 min-h-screen flex flex-col justify-center items-center px-6 py-20 text-center">
-        <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-lg">
-          ShuHaRi Renewables
+      {/* Glowing gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-purple-800/20 to-black/90 z-0"></div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.2 }}
+        className="relative z-10 text-white text-center px-6 pt-32 md:pt-40"
+      >
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-fuchsia-500 to-cyan-400 drop-shadow-2xl">
+          Welcome to ShuHaRi Renewables
         </h1>
-        <p className="max-w-3xl text-lg md:text-xl mb-10 font-light drop-shadow-md">
-          <CollapsibleText text={introText} maxLength={150} />
+
+        <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
+          🌱 Empowering India with Sustainable Biomass & Clean Energy Solutions.
         </p>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-7xl w-full mx-auto">
-          {productList.map(({ id, name, image }) => (
-            <div
-              key={id}
-              className="bg-black/40 rounded-lg p-4 hover:bg-green-600 hover:scale-105 transition-transform duration-300 cursor-pointer shadow-lg"
-              title={name}
-            >
-              <img
-                src={image}
-                alt={name}
-                className="w-full h-24 object-contain mb-2"
-                loading="lazy"
-              />
-              <span className="block text-sm font-semibold tracking-wide">{name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* WhatsApp Live Chat Button */}
-      <WhatsAppChat phoneNumber="+1234567890" />
-
-    </main>
+        <motion.a
+          href={`https://wa.me/${phoneNumber.replace(/\D/g, '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          className="mt-10 inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full shadow-2xl hover:bg-green-600 transition-all duration-300"
+        >
+          <Sparkles className="h-5 w-5 animate-pulse" />
+          Chat with Us on WhatsApp
+        </motion.a>
+      </motion.div>
+    </section>
   );
 };
 

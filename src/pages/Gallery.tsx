@@ -1,5 +1,4 @@
 // src/pages/Gallery.tsx
-import React from 'react';
 
 const images = [
   { id: 1, src: '/public/images/Wood Pellets.jpg', alt: 'Wood Pellets Production' },
