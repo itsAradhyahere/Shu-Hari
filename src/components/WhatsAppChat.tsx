@@ -15,7 +15,7 @@ const WhatsAppChat: React.FC<WhatsAppChatProps> = ({ phoneNumber }) => {
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50"
     >
-      <img src="/public/images/whatsapp.png" alt="WhatsApp" className="h-7 w-7" />
+      <img src="/src/assets/Whatsapp.png" alt="WhatsApp" className="h-7 w-7" />
     </a>
   );
 };

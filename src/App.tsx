@@ -14,7 +14,7 @@ import Dealer from './pages/Dealer';
 import Contact from './pages/Contact';
 import SavingsCalculator from './pages/SavingsCalculator';
 
-const App: React.FC = () => {
+const App = () => {
   const phoneNumber = '+91 9876543210'; // ✅ Change to your desired WhatsApp number
 
   return (
@@ -27,6 +27,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home phoneNumber={phoneNumber} />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/dealer" element={<Dealer />} />
             <Route path="/contact" element={<Contact />} />

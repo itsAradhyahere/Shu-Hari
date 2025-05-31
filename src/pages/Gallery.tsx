@@ -1,10 +1,10 @@
 // src/pages/Gallery.tsx
 
 const images = [
-  { id: 1, src: '/public/images/Wood Pellets.jpg', alt: 'Wood Pellets Production' },
-  { id: 2, src: './public/images/Briquette.jpg', alt: 'Biomass Briquettes' },
-  { id: 3, src: '/public/images/Rice Straw and Husk.jpg', alt: 'Rice Straw Collection' },
-  { id: 4, src: '/public/images/Bamboo.jpg', alt: 'Sustainable Bamboo Farming' },
+  { id: 1, src: '/src/assets/Wood Pellets.jpg', alt: 'Wood Pellets Production' },
+  { id: 2, src: '/src/assets/Briquette.jpg', alt: 'Biomass Briquettes' },
+  { id: 3, src: '/src/assets/Rice Straw and Husk.jpg', alt: 'Rice Straw Collection' },
+  { id: 4, src: '/src/assets/Bamboo.jpg', alt: 'Sustainable Bamboo Farming' },
 ];
 
 const videos = [
