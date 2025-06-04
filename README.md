@@ -54,3 +54,4 @@ export default tseslint.config({
 ```
 # Shuhari
 # Renewable-Website
+# Shu-Hari
