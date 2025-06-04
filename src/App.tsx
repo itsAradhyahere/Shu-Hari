@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
@@ -13,6 +12,7 @@ import Gallery from './pages/Gallery';
 import Dealer from './pages/Dealer';
 import Contact from './pages/Contact';
 import SavingsCalculator from './pages/SavingsCalculator';
+import ProductRecommender from './pages/ProductRecommender';
 
 const App = () => {
   const phoneNumber = '+91 9876543210'; // ✅ Change to your desired WhatsApp number
@@ -27,6 +27,7 @@ const App = () => {
             <Route path="/" element={<Home phoneNumber={phoneNumber} />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/smart-recommender" element={<ProductRecommender />} />
             
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/dealer" element={<Dealer />} />

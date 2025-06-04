@@ -5,7 +5,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-md py-4 px-6 flex justify-between items-center animate-fade-in">
       <Link to="/">
         <img 
-          src="/images/ShuHari Logo.png"  // ✅ Correct path without /public
+          src="/src/Assets/ShuHari Logo.png"  // ✅ Correct path without /public
           alt="ShuHaRi Logo" 
           className="h-20 w-auto max-h-25 object-contain" 
         />
